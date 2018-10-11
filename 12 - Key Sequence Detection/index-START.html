@@ -6,16 +6,26 @@
   <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
 </head>
 <body>
+  ↓ ↑ ↓ ↓ ← → ← → B A Enter
+
 <script>
   const pressed = [];
   const secretCode = "ilyana19";
+  const array = ["ArrowDown", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a", "Enter"];
 
   window.addEventListener("keyup", (e) => {
     console.log(e.key);
     pressed.push(e.key);
-    pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+    // pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
 
-    if (pressed.join("").includes(secretCode)) {
+    // if (pressed.join("").includes(secretCode)) {
+    //   console.log("matched!");
+    //   cornify_add();
+    // }
+
+    pressed.splice(-array.length - 1, pressed.length - array.length);
+
+    if (pressed.join("") === array.join("")) {
       console.log("matched!");
       cornify_add();
     }
